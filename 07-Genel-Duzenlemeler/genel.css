@@ -1,67 +1,100 @@
 /* ============================================= */
-/* ZARA STYLE MINIMALISM - GLOBAL UI */
+/* MODERN PREMIUM UI - GLOBAL SETTINGS */
 /* ============================================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
 
-body {
-    font-family: 'Inter', sans-serif !important;
-    color: #1a1a1a;
-    background-color: #ffffff;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
+:root {
+    --tot-primary: #1a1a1a;
+    --tot-accent: #c5a059; /* Luxury Gold */
+    --tot-bg: #ffffff;
+    --tot-text: #333333;
+    --tot-light-gray: #f8f8f8;
+    --tot-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    --tot-radius: 4px;
 }
 
-h1, h2, h3, h4, .hero-title, .shop-title {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.02em !important;
-    text-transform: none !important;
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--tot-text);
+    background-color: var(--tot-bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, .hero-title, .shop-title, .premium-heading {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--tot-primary) !important;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #000; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--tot-light-gray); }
+::-webkit-scrollbar-thumb { background: var(--tot-accent); }
 
 /* Selection */
-::selection { background: #000; color: #fff; }
+::selection { background: var(--tot-accent); color: #fff; }
 
-/* Spacing Fixes */
-#content { padding-top: 0 !important; }
-.ast-container { max-width: 1400px !important; }
+/* Container Width */
+.ast-container { max-width: 1440px !important; }
 
-/* Buttons */
-.button, button, input[type="submit"] {
-    background: #000 !important;
+/* Buttons - Premium Style */
+.button, button, input[type="submit"], .ast-button {
+    background: var(--tot-primary) !important;
     color: #fff !important;
-    border: none !important;
-    border-radius: 0 !important; /* Zara style is sharp */
-    padding: 15px 35px !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.1em !important;
+    border: 1px solid var(--tot-primary) !important;
+    border-radius: var(--tot-radius) !important;
+    padding: 14px 32px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.15em !important;
     text-transform: uppercase !important;
-    transition: 0.4s ease !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    position: relative;
+    overflow: hidden;
 }
 
-.button:hover {
-    background: #333 !important;
-    opacity: 0.9;
+.button:hover, button:hover, .ast-button:hover {
+    background: transparent !important;
+    color: var(--tot-primary) !important;
+    box-shadow: var(--tot-shadow) !important;
+    transform: translateY(-2px);
 }
 
-/* Fluid Zara Animations */
-.woocommerce ul.products li.product {
-    animation: zaraFadeIn 1s ease forwards;
-    opacity: 0;
+/* Secondary Button */
+.button.alt, .ast-button.ast-style-outline {
+    background: transparent !important;
+    color: var(--tot-primary) !important;
+    border: 1px solid #ddd !important;
 }
 
-@keyframes zaraFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+.button.alt:hover {
+    background: var(--tot-primary) !important;
+    color: #fff !important;
+    border-color: var(--tot-primary) !important;
+}
+
+/* Global Animations */
+.premium-fade-in {
+    animation: premiumFadeUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes premiumFadeUp {
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Staggered animation for products */
-.woocommerce ul.products li.product:nth-child(1) { animation-delay: 0.1s; }
-.woocommerce ul.products li.product:nth-child(2) { animation-delay: 0.2s; }
-.woocommerce ul.products li.product:nth-child(3) { animation-delay: 0.3s; }
-.woocommerce ul.products li.product:nth-child(4) { animation-delay: 0.4s; }
+/* Input Fields */
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    border: 1px solid #e0e0e0 !important;
+    border-radius: var(--tot-radius) !important;
+    padding: 12px 15px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--tot-accent) !important;
+    outline: none;
+}

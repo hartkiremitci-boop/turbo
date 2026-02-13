@@ -1,0 +1,186 @@
+/* ============================================= */
+/* TOTBAGSS MODERN PREMIUM MASTER STYLESHEET */
+/* v1.3.0 - All-in-One for Custom CSS */
+/* ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+    --tot-primary: #1a1a1a;
+    --tot-accent: #c5a059;
+    --tot-bg: #ffffff;
+    --tot-text: #333333;
+    --tot-light-gray: #f8f8f8;
+    --tot-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    --tot-radius: 4px;
+}
+
+/* 1. GLOBAL UI */
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--tot-text);
+    background-color: var(--tot-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .hero-title, .shop-title {
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.button, button, input[type="submit"], .ast-button {
+    background: var(--tot-primary) !important;
+    color: #fff !important;
+    border-radius: var(--tot-radius) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    transition: all 0.4s ease !important;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--tot-shadow) !important;
+}
+
+/* 2. HERO SECTION */
+.wp-block-cover, .hero-premium-section {
+    min-height: 85vh !important;
+    background-color: #000;
+}
+
+.wp-block-cover__inner-container {
+    padding: 60px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center !important;
+}
+
+.hero-title {
+    font-size: clamp(40px, 6vw, 90px) !important;
+    color: #fff !important;
+    font-weight: 300 !important;
+}
+
+/* 3. PRODUCT CARDS */
+.woocommerce ul.products li.product {
+    padding: 15px !important;
+    background: #fff !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 8px !important;
+    transition: all 0.4s ease !important;
+}
+
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+
+.woocommerce-loop-product__title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 15px 0 8px !important;
+}
+
+.woocommerce ul.products li.product .price {
+    color: var(--tot-accent) !important;
+    font-weight: 600 !important;
+}
+
+.tot-badge-new {
+    background: var(--tot-accent) !important;
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 12px;
+}
+
+/* 4. SHOP HEADER & CATEGORIES */
+.tot-premium-shop-header { margin: 40px 0 60px; }
+.shop-title { font-size: 42px !important; }
+
+.cat-chip {
+    padding: 10px 25px;
+    background: #f8f8f8;
+    border-radius: 50px;
+    font-size: 11px;
+    color: #666;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cat-chip.active {
+    background: var(--tot-primary);
+    color: #fff;
+}
+
+/* 5. MOBILE BOTTOM NAV */
+.tot-mobile-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    height: 65px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 9999;
+}
+
+.tot-nav-item {
+    text-align: center;
+    color: var(--tot-primary);
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.tot-nav-item i { font-size: 20px; display: block; margin-bottom: 2px; }
+
+/* 6. WHATSAPP BUTTON */
+.tot-whatsapp-float {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    background: #25d366;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    z-index: 9998;
+}
+
+/* 7. PRODUCT PAGE */
+.product_title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 36px !important;
+}
+
+.single_add_to_cart_button {
+    background: var(--tot-primary) !important;
+    padding: 18px !important;
+    letter-spacing: 0.2em !important;
+}
+
+/* 8. CARGO TIMER & PANELS */
+.tot-static-timer {
+    font-size: 9px !important;
+    background: #f9f9f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.tot-panel-item {
+    font-size: 10px !important;
+    border-left: 2px solid var(--tot-accent);
+    padding-left: 10px;
+}

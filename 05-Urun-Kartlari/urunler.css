@@ -1,53 +1,110 @@
-/* ZARA STYLE - PRODUCT CARDS */
+/* ============================================= */
+/* MODERN PREMIUM - PRODUCT CARDS */
+/* ============================================= */
+
 .woocommerce ul.products li.product {
-    padding: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    margin-bottom: 40px !important;
+    padding: 15px !important;
+    background: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    margin-bottom: 30px !important;
+    overflow: hidden;
+}
+
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+    border-color: #e0e0e0 !important;
 }
 
 .woocommerce-loop-product__thumbnail {
-    border-radius: 0 !important;
+    border-radius: 6px !important;
     overflow: hidden;
-    background: #f9f9f9;
+    background: #fdfdfd;
+    margin-bottom: 20px !important;
 }
 
 .woocommerce-loop-product__thumbnail img {
-    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1) !important;
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
 .woocommerce ul.products li.product:hover .woocommerce-loop-product__thumbnail img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .woocommerce-loop-product__title {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 400 !important;
-    font-size: 13px !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    margin: 15px 0 5px !important;
-    color: #000 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: var(--tot-primary) !important;
+    margin: 10px 0 8px !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
 }
 
 .woocommerce ul.products li.product .price {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 300 !important;
-    font-size: 14px !important;
-    color: #666 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: var(--tot-accent) !important;
+    display: block !important;
+    margin-bottom: 15px !important;
+    text-align: left !important;
 }
 
-/* Hide add to cart button on shop page for cleaner Zara look, or make it subtle */
+/* Kargo Sayacı ve Panel */
+.tot-static-timer {
+    font-size: 9px !important;
+    color: #888;
+    background: #f9f9f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tot-timer-val {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.tot-rotating-panel {
+    height: 20px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.tot-panel-item {
+    font-size: 10px !important;
+    font-weight: 500;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-left: 2px solid var(--tot-accent);
+    padding-left: 10px;
+    animation: slideInPanel 0.5s ease forwards;
+}
+
+@keyframes slideInPanel {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Add to Cart Button Styling */
 .woocommerce ul.products li.product .button {
-    background: transparent !important;
-    color: #000 !important;
-    border: 1px solid #000 !important;
-    font-size: 11px !important;
-    padding: 10px !important;
-    margin-top: 10px !important;
+    width: 100% !important;
+    margin: 0 !important;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
+    transition: all 0.4s ease !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 !important;
 }
 
 .woocommerce ul.products li.product:hover .button {
@@ -55,10 +112,17 @@
     transform: translateY(0);
 }
 
-/* Badge */
+/* Badge - Luxury Style */
 .tot-badge-new {
-    background: #000 !important;
-    border-radius: 0 !important;
-    font-size: 10px !important;
-    padding: 2px 8px !important;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: var(--tot-accent) !important;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 12px;
+    z-index: 10;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
