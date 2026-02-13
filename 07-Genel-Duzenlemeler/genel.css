@@ -1,0 +1,14 @@
+/* Genel UI Ayarları */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#content {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.ast-container {
+    padding-top: 0 !important;
+}

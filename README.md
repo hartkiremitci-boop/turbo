@@ -1,52 +1,45 @@
-# TotBagss Premium Child Theme & Setup Guide
+# TotBagss Premium Modüler Child Tema
 
-Bu depo, TotBagss e-ticaret sitesini tamamen "Pro" bir görünüme kavuşturmak için hazırlanan özel kodları ve kurulum rehberini içerir.
+Bu tema, Astra Child Theme üzerine inşa edilmiş, performans odaklı ve yüksek kaliteli (Pro) kullanıcı arayüzü bileşenleri içeren modüler bir yapıdır.
 
-## Dosyalar
+## 🚀 Öne Çıkan Özellikler
 
-- `style.css`: Tüm premium tasarım (Hero, Shop Header, Ürün Kartları, Sepet ve Hesap sayfaları).
-- `functions.php`: Gelişmiş ürün karuseli, kargo sayaçları, dinamik paneller ve WooCommerce özelleştirmeleri.
-- `simple-custom.css`: Sipariş takip sayfası gibi belirli alanlar için ek özelleştirmeler.
+-   **Modüler Mimari:** Tüm CSS ve PHP kodları mantıksal klasörlere ayrılmıştır (00-14).
+-   **Performans & Kalite:** Gereksiz scriptler temizlenmiş, script erteleme (defer) ve görsel optimizasyonları eklenmiştir.
+-   **Mobil Hero:** Kullanıcı geri bildirimi doğrultusunda inceltilmiş, zarif mobil ana sayfa alanı.
+-   **Mobil Alt Menü:** Uygulama benzeri (App-like) alt navigasyon çubuğu.
+-   **Yapışkan Satın Al (Sticky Add to Cart):** Ürün sayfalarında kaydırma yaparken beliren satın alma barı.
+-   **WhatsApp Destek:** Hızlı iletişim için yüzer buton.
+-   **Ürün Karuseli:** Ajax destekli "Sepete Ekle" özellikli sürükle-bırak karusel.
+-   **Kargo Sayacı & Bilgi Paneli:** Ürün kartlarında dinamik kargo süresi ve dönen bilgi panelleri.
+-   **Hızlı Satın Al:** Mobilde sepeti atlayıp ödeme sayfasına direkt geçiş butonu.
+-   **Brevo Entegrasyonu:** WooCommerce olaylarını Brevo Automation'a ileten takip altyapısı.
 
-## Önemli Özellikler
+## 📁 Klasör Yapısı
 
-- **Premium Shop Header:** Shop sayfasında kategori chip'leri ve modern sıralama menüsü.
-- **Enhanced Product Cards:** Parlama efekti, dönen bilgi paneli ve kargo sayacı entegre edildi.
-- **Improved Carousel:** Mobil uyumlu, akıcı kaydırma ve "Zamansız Şıklık" geçiş kartı.
-- **Conflict Resolution:** Sepet butonu ve Brevo butonu çakışmaları giderildi.
+0.  `00-Performans-ve-Kalite`: Hız ve kalite ayarları.
+1.  `01-Hero-Alani`: Ana sayfa video/banner alanı ve Header düzenlemeleri.
+3.  `03-Urun-Karuseli`: Ana sayfa ürün kaydırıcı.
+4.  `04-Magaza-Basligi`: Mağaza kategorileri ve sıralama barı.
+5.  `05-Urun-Kartlari`: Ürün kartları ve bilgi panelleri.
+6.  `06-Hesap-ve-Sepet`: Giriş, kayıt, sepet ve ödeme sayfaları.
+7.  `07-Genel-Duzenlemeler`: Global UI iyileştirmeleri ve görsel optimizasyonu.
+8.  `08-Siparis-Takibi`: Üyeliksiz sipariş takip sayfası tasarımı.
+9.  `09-Mobil-Alt-Menu`: Mobilde sabit alt navigasyon barı.
+10. `10-Urun-Sayfasi-Iyilestirmeleri`: Ürün içi Sticky Add to Cart ve Pro özellikler.
+11. `11-Destek-Hatti`: WhatsApp yüzer buton entegrasyonu.
+12. `12-Iletisim-Sayfasi`: İletişim formu ve sayfa tasarımı.
+13. `13-Mobil-Hizli-Satin-Al`: Mobil için "Hemen Al" ve hızlı ödeme süreci.
+14. `14-Brevo-Entegrasyonu`: WooCommerce sepet ve sipariş takip altyapısı.
 
----
+## 🛠️ Kurulum ve Kullanım
 
-## Brevo & WooCommerce Bağlantı Rehberi (Step-by-Step)
+1.  Temayı `wp-content/themes/astra-child` dizinine yükleyin.
+2.  Görünüm > Temalar kısmından aktif edin.
+3.  **Brevo:** Takip ID'nizi `14-Brevo-Entegrasyonu/brevo.php` dosyasına ekleyebilirsiniz.
 
-Brevo'yu (eski adıyla Sendinblue) WooCommerce ödeme sistemine bağlamak ve profesyonel bir e-posta pazarlama altyapısı kurmak için şu adımları izleyin:
-
-### 1. Brevo Eklentisini Kurun
-- WordPress panelinizde **Eklentiler > Yeni Ekle** kısmına gidin.
-- "Brevo for WooCommerce" aramasını yapın ve eklentiyi kurup etkinleştirin.
-
-### 2. API Anahtarını Alın
-- [Brevo](https://www.brevo.com/) hesabınıza giriş yapın.
-- Sağ üstteki profil menüsünden **SMTP & API** seçeneğine tıklayın.
-- **Create a new API key** butonuna basın, isimlendirin ve anahtarı kopyalayın.
-
-### 3. WordPress'e Bağlayın
-- WordPress menüsünde çıkan **Brevo** sekmesine gidin.
-- Kopyaladığınız API anahtarını buraya yapıştırın ve **Bağlan** deyin.
-
-### 4. WooCommerce Entegrasyonunu Aktif Edin
-- Brevo ayarları içinde **WooCommerce** sekmesini bulun.
-- "Enable WooCommerce tracking" ve "Sync customers" seçeneklerini aktif edin.
-- Bu sayede sepetini terk eden müşterilere otomatik e-postalar gönderebilirsiniz.
-
-### 5. Ödeme (Checkout) ile Eşleştirme
-- "Opt-in field" seçeneğini aktif ederek, ödeme sayfasında müşterilerin bültene kayıt olmasını sağlayın.
-- Bu işlem, `functions.php` içine eklediğimiz premium stil kodlarıyla otomatik olarak güzelleşecektir.
+## ⚡ Performans Notu
+Tema, veritabanı sorgularını minimize eder ve sadece ilgili sayfalarda gerekli CSS/JS dosyalarını yükler.
 
 ---
-
-## Kurulum Talimatları
-
-1. `style.css` içeriğini WordPress temanızın ana CSS dosyasına veya Customizer'daki "Ek CSS" kısmına ekleyin.
-2. `functions.php` içeriğini temanızın `functions.php` dosyasına veya "Code Snippets" eklentisiyle yeni bir snippet olarak ekleyin.
-3. `simple-custom.css` içeriğini "Simple Custom CSS" gibi bir eklentiye veya temanızın özel CSS alanına ekleyin.
+*Geliştiren: Jules - TotBagss Premium Çözümleri*

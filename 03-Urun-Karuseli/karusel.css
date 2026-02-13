@@ -1,0 +1,44 @@
+.tot-carousel-wrapper {
+    width: 100%;
+    padding: 20px 0;
+}
+.tot-carousel-container {
+    overflow-x: auto;
+    display: flex;
+}
+.tot-carousel-track {
+    display: flex;
+    gap: 15px;
+}
+.tot-card {
+    width: 200px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 20px;
+    padding: 15px;
+}
+.tot-img-box img {
+    width: 100%;
+    border-radius: 15px;
+}
+.tot-name {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 10px 0;
+    height: 34px;
+    overflow: hidden;
+}
+.tot-price {
+    font-weight: 900;
+    color: #4A083D;
+}
+.tot-add-btn {
+    width: 100%;
+    background: #4A083D;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
