@@ -1,0 +1,36 @@
+/* Genel UI Ayarları */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#content {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.ast-container {
+    padding-top: 0 !important;
+}
+
+/* Mobil Sayfa Düzeni İyileştirmeleri */
+@media (max-width: 768px) {
+    .site-content {
+        padding-top: 10px !important;
+    }
+    .wp-block-group {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .entry-content {
+        margin-top: 0 !important;
+    }
+    section {
+        margin-bottom: 30px !important;
+    }
+    h2 {
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 20px !important;
+    }
+}

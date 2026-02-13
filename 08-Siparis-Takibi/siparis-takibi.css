@@ -1,0 +1,150 @@
+/* ==============================
+   ÜYELİKSİZ SİPARİŞ TAKİBİ – FINAL
+   Sadece Sayfa ID: 13814
+================================ */
+
+/* Kutu */
+.page-id-13814 .woocommerce {
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 40px 35px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.10);
+}
+
+/* Başlık */
+.page-id-13814 h1,
+.page-id-13814 h2 {
+  text-align: center;
+  color: #4A083D;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+/* Label */
+.page-id-13814 label {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Input */
+.page-id-13814 input[type="text"],
+.page-id-13814 input[type="email"] {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  background: #f8f8f8;
+  font-size: 15px;
+  transition: all .25s ease;
+}
+
+.page-id-13814 input:focus {
+  border-color: #ff5fa2;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255,95,162,.18);
+  outline: none;
+}
+
+/* Form boşluk */
+.page-id-13814 .form-row {
+  margin-bottom: 20px;
+}
+
+/* BUTON – PREMIUM */
+.page-id-13814 .woocommerce-form-track-order button.button {
+  width: 100% !important;
+  padding: 22px !important;
+  min-height: 72px;
+
+  border-radius: 26px !important;
+  border: none !important;
+
+  background: linear-gradient(135deg, #5a0f4e, #ff5fa2) !important;
+  color: #fff !important;
+
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  box-shadow: 0 18px 45px rgba(90,15,78,.45);
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+}
+
+/* Hover */
+.page-id-13814 .woocommerce-form-track-order button.button:hover {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 32px 75px rgba(90,15,78,.65);
+  filter: brightness(1.1);
+}
+
+/* Active */
+.page-id-13814 .woocommerce-form-track-order button.button:active {
+  transform: scale(0.95);
+}
+
+/* Glow */
+.page-id-13814 .woocommerce-form-track-order button.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,.35), transparent 65%);
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.page-id-13814 .woocommerce-form-track-order button.button:hover::after {
+  opacity: 1;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  .page-id-13814 .woocommerce {
+    margin: 30px 15px;
+    padding: 30px 22px;
+  }
+}/* Premium Sipariş Takibi Header */
+.page-id-13814 .premium-order-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 45px;
+}
+
+.page-id-13814 .premium-order-header h2 {
+  font-size: 34px;
+  font-weight: 900;
+  color: #4A083D;
+  margin-bottom: 14px;
+  letter-spacing: .5px;
+}
+
+.page-id-13814 .premium-order-header p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.page-id-13814 .premium-order-header p span {
+  color: #FB5FAB;
+  font-weight: 700;
+}
+
+/* Mobil */
+@media(max-width:768px){
+  .page-id-13814 .premium-order-header h2 {
+    font-size: 28px;
+  }
+
+  .page-id-13814 .premium-order-header p {
+    font-size: 15.5px;
+  }
+}

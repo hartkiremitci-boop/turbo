@@ -1,0 +1,124 @@
+/*
+ * Ürün Sayfası İyileştirmeleri - v1.1.0
+ * Bu dosya tekil ürün sayfası (single product) görünümünü düzenler.
+ */
+
+/* Üstten Sabit Sepete Ekle Paneli (Scroll yapınca çıkar) */
+.tot-sticky-add-to-cart {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    z-index: 9998;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Panel Görünür Olduğunda */
+.tot-sticky-add-to-cart.visible {
+    bottom: 0;
+}
+
+/* Mobilde Alt Menünün Üstünde Kalması İçin */
+@media (max-width: 768px) {
+    .tot-sticky-add-to-cart.visible {
+        bottom: 60px;
+    }
+}
+
+/* Sabit Panel İçerik Düzeni */
+.sticky-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sticky-title {
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+}
+
+.sticky-price {
+    color: #4A083D;
+    font-weight: 900;
+}
+
+/* Sabit Panel Butonu */
+.sticky-btn {
+    background: #4A083D;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* --- Ürün Görselleri Premium Düzenlemeler --- */
+
+/* Ürün Ana Galeri Alanı */
+.woocommerce-product-gallery {
+    margin-bottom: 30px !important;
+}
+
+.woocommerce-product-gallery__wrapper {
+    max-height: 550px !important; /* Çok büyük görselleri sınırlar */
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    background: #fdfdfd !important;
+}
+
+/* Ana Görsel Boyutlandırma */
+.woocommerce-product-gallery__image img {
+    object-fit: contain !important;
+    max-height: 550px !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+/* Mobilde Görsel Boyutu */
+@media (max-width: 768px) {
+    .woocommerce-product-gallery__wrapper {
+        max-height: 400px !important;
+    }
+    .woocommerce-product-gallery__image img {
+        max-height: 400px !important;
+    }
+}
+
+/* Galeri Küçük Resimler (Thumbnails) */
+.flex-control-thumbs {
+    margin-top: 15px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+
+.flex-control-thumbs li {
+    width: 60px !important;
+    list-style: none !important;
+    margin: 0 !important;
+}
+
+.flex-control-thumbs img {
+    border-radius: 10px !important;
+    transition: 0.3s !important;
+    opacity: 0.7 !important;
+    cursor: pointer !important;
+    border: 2px solid transparent !important;
+}
+
+/* Aktif Seçili Küçük Resim */
+.flex-control-thumbs img.flex-active {
+    opacity: 1 !important;
+    border-color: #4A083D !important;
+}
