@@ -1,131 +1,16 @@
-/*
- * Ürün Kartları Premium Tasarım - v1.1.0
- * Bu dosya mağaza sayfasındaki ürün listeleme görünümünü düzenler.
- */
-
-/* Ana Ürün Kartı Kapsayıcısı */
+/* ÜRÜN KARTLARI TAM STİLLER */
 .woocommerce ul.products li.product {
-    padding: 12px !important;
-    border-radius: 20px !important; /* Köşeleri yuvarlatma */
-    border: 1px solid #eee !important; /* İnce gri çerçeve */
+    padding: 15px !important;
+    border-radius: 20px !important;
+    border: 1px solid #f2f2f2 !important;
     background: #fff !important;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important; /* Geçiş efekti */
-    overflow: hidden !important;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
-
-/* Kartın Üzerine Gelince Oluşan Efekt (Hover) */
-.woocommerce ul.products li.product:hover {
-    transform: translateY(-8px); /* Yukarı hafif kayma */
-    box-shadow: 0 20px 40px rgba(74, 8, 61, 0.08) !important; /* Gölge efekti */
-    border-color: #4a083d33 !important; /* Çerçeve rengi değişimi */
-}
-
-/* Ürün Görseli Alanı - Görsellerin orantılı ve şık durmasını sağlar */
-.woocommerce-loop-product__thumbnail {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    height: 320px; /* Sabit yükseklik ile tüm kartların aynı hizada durması sağlanır */
-    background: #fdfdfd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Ürün Resmi Efekti */
-.woocommerce ul.products li.product img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* Görseli alanı dolduracak şekilde kırpar, premium duruş sağlar */
-    transition: transform 0.6s ease !important;
-}
-
-/* Resim Hover Efekti - Hafif zoom yapar */
-.woocommerce ul.products li.product:hover img {
-    transform: scale(1.08);
-}
-
-/* Üst Köşedeki "YENİ" Rozeti */
-.tot-badge-new {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #4a083d;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 800;
-    z-index: 10;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Sayaç Alanı - Kargo için kalan süre */
-.tot-static-timer {
-    font-size: 10px;
-    font-weight: 800;
-    color: #333;
-    margin: 12px 0 6px;
-    text-align: center;
-    letter-spacing: -0.2px;
-}
-
-/* Sayaç Rakamları */
-.tot-timer-val {
-    color: #4a083d;
-    font-weight: 900;
-}
-
-/* Dönen Bilgi Paneli (Kargo, Değişim vb.) */
-.tot-rotating-panel {
-    background: #f8f0f6; /* Hafif morumsu arka plan */
-    border-radius: 10px;
-    min-height: 32px;
-    margin: 6px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4a083d;
-    font-size: 10px;
-    font-weight: 700;
-    border: 1px dashed #4a083d33; /* Kesikli çizgi detayı */
-}
-
-/* Ürün Başlığı (İsmi) */
-.woocommerce-loop-product__title {
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    color: #222 !important;
-    margin: 12px 0 8px !important;
-    text-transform: capitalize !important; /* Kelimelerin baş harfi büyük */
-    line-height: 1.4 !important;
-    text-align: center !important;
-    min-height: 36px; /* İki satırlık alan ayırma */
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Maksimum 2 satır gösterir */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Ürün Fiyatı */
-.woocommerce ul.products li.product .price {
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 900 !important;
-    color: #4A083D !important;
-    margin-bottom: 10px !important;
-    display: block !important;
-    text-align: center !important;
-}
-
-/* Mobil Cihazlar İçin Ayarlamalar */
-@media (max-width: 768px) {
-    .woocommerce-loop-product__thumbnail {
-        height: 240px; /* Mobilde daha küçük görsel alanı */
-    }
-    .woocommerce-loop-product__title {
-        font-size: 12px !important;
-    }
-}
+.woocommerce ul.products li.product:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(74, 8, 61, 0.1); }
+.tot-badge-new { position: absolute; top: 10px; left: 10px; background: #4a083d; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 8px; font-weight: 900; z-index: 10; }
+.tot-static-timer { font-size: 9px; font-weight: 900; color: #4a083d; text-align: center; margin: 8px 0; }
+.tot-timer-val { color: #ff5fa2; }
+.tot-rotating-panel { background: linear-gradient(135deg, #4a083d 0%, #6a0d58 100%); border-radius: 8px; min-height: 28px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; font-weight: 800; }
+.woocommerce-loop-product__thumbnail { position: relative; overflow: hidden; border-radius: 15px; }
+.woocommerce-loop-product__thumbnail::after { content: ""; position: absolute; top: 0; left: -150%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-25deg); transition: 0.7s; }
+.woocommerce ul.products li.product:hover .woocommerce-loop-product__thumbnail::after { left: 150%; }

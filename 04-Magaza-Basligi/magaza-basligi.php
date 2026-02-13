@@ -1,11 +1,15 @@
 <?php
 /**
- * Premium Mağaza Başlığı (Kategoriler & Sıralama)
+ * Mağaza Başlığı, Kategoriler ve Filtreler
  */
+
+if (!defined('ABSPATH')) exit;
+
 add_action('woocommerce_before_shop_loop', 'totbagss_premium_shop_header', 15);
 function totbagss_premium_shop_header() {
     if (!is_shop() && !is_product_category()) return;
 
+    // Varsayılanları gizle
     remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
     remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 

@@ -1,16 +1,24 @@
 <?php
 /**
- * Ürün Karuseli Shortcode
+ * Ajax Destekli Ürün Karuseli
  */
-add_shortcode('tot_carousel', 'totbagss_hero_carousel');
-function totbagss_hero_carousel($atts) {
-    $a = shortcode_atts(array('cat' => 'yeni-gelenler', 'limit' => 6), $atts);
-    $q = new WP_Query(array('post_type' => 'product', 'posts_per_page' => $a['limit'], 'product_cat' => $a['cat']));
+
+if (!defined('ABSPATH')) exit;
+
+add_shortcode('tot_carousel', 'totbagss_main_carousel');
+function totbagss_main_carousel($atts) {
+    $a = shortcode_atts(array('cat' => 'yeni-gelenler', 'limit' => 8), $atts);
+    $q = new WP_Query(array(
+        'post_type' => 'product',
+        'posts_per_page' => $a['limit'],
+        'product_cat' => $a['cat'],
+        'stock_status' => 'instock'
+    ));
 
     ob_start();
     if ($q->have_posts()) : ?>
     <div class="tot-carousel-wrapper">
-        <div class="tot-carousel-container no-scrollbar" id="totCarousel">
+        <div class="tot-carousel-container no-scrollbar" id="totMainCarousel">
             <div class="tot-carousel-track">
                 <?php while ($q->have_posts()) : $q->the_post(); global $product;
                     $img = wp_get_attachment_image_src($product->get_image_id(), 'woocommerce_thumbnail');
@@ -18,7 +26,7 @@ function totbagss_hero_carousel($atts) {
                 ?>
                 <div class="tot-card-link">
                     <div class="tot-card">
-                        <a href="<?php the_permalink(); ?>" style="text-decoration:none; color:inherit;">
+                        <a href="<?php the_permalink(); ?>" class="tot-product-inner">
                             <div class="tot-img-box">
                                 <img src="<?php echo $img_url; ?>" alt="<?php the_title(); ?>" loading="lazy">
                             </div>
@@ -42,7 +50,7 @@ function totbagss_hero_carousel($atts) {
 
     <script>
     (function() {
-        const track = document.getElementById('totCarousel');
+        const track = document.getElementById('totMainCarousel');
         if (!track) return;
         let isDown = false; let startX, scrollLeft;
         track.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
@@ -52,6 +60,7 @@ function totbagss_hero_carousel($atts) {
 
         document.querySelectorAll('.tot-add-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
+                e.preventDefault();
                 const id = this.dataset.productId;
                 this.innerText = '...';
                 const fd = new FormData();
