@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit;
 
 // 1. Enqueue Child Theme Styles
 add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style('astra-child-theme-css', get_stylesheet_uri(), array('astra-theme-css'), '1.0.4');
+    wp_enqueue_style('astra-child-theme-css', get_stylesheet_uri(), array('astra-theme-css'), '1.0.5');
 });
 
 // 2. Load Modular Components
@@ -26,7 +26,9 @@ $components = array(
     '11-Destek-Hatti/destek.php',
     '12-Iletisim-Sayfasi/iletisim.php',
     '13-Mobil-Hizli-Satin-Al/hizli-satin-al.php',
-    '14-Brevo-Entegrasyonu/brevo.php'
+    '14-Brevo-Entegrasyonu/brevo.php',
+    '15-Hizli-Kategoriler/kategoriler.php',
+    '16-Mobil-Arama/arama.php'
 );
 
 foreach ($components as $file) {
@@ -51,10 +53,12 @@ add_action('wp_enqueue_scripts', function() {
         'sticky-css'   => '10-Urun-Sayfasi-Iyilestirmeleri/urun.css',
         'destek-css'   => '11-Destek-Hatti/destek.css',
         'iletisim-css' => '12-Iletisim-Sayfasi/iletisim.css',
-        'hizli-satin-al-css' => '13-Mobil-Hizli-Satin-Al/hizli-satin-al.css'
+        'hizli-satin-al-css' => '13-Mobil-Hizli-Satin-Al/hizli-satin-al.css',
+        'hizli-kategoriler-css' => '15-Hizli-Kategoriler/kategoriler.css',
+        'mobil-arama-css' => '16-Mobil-Arama/arama.css'
     );
 
     foreach ($css_files as $handle => $rel_path) {
-        wp_enqueue_style($handle, get_stylesheet_directory_uri() . '/' . $rel_path, array(), '1.0.4');
+        wp_enqueue_style($handle, get_stylesheet_directory_uri() . '/' . $rel_path, array(), '1.0.5');
     }
 });

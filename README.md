@@ -43,3 +43,5 @@ Tema, veritabanı sorgularını minimize eder ve sadece ilgili sayfalarda gerekl
 
 ---
 *Geliştiren: Jules - TotBagss Premium Çözümleri*
+15. `15-Hizli-Kategoriler`: Mobilde dairesel kategori ikonları.
+16. `16-Mobil-Arama`: Ana sayfada hızlı arama barı.

@@ -42,3 +42,15 @@
     margin-top: 10px;
     cursor: pointer;
 }
+
+/* Mobil Kaydırma İyileştirmesi */
+@media (max-width: 768px) {
+    .tot-carousel-container {
+        padding-bottom: 20px;
+        scroll-snap-type: x mandatory;
+    }
+    .tot-card-link {
+        scroll-snap-align: start;
+        flex: 0 0 180px; /* Biraz daha geniş ve rahat */
+    }
+}
