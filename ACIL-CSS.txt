@@ -1,0 +1,68 @@
+/* TOTBAGSS PREMIUM - HEMEN UYGULA (CUSTOMIZER İÇİN) */
+
+/* 1. Genel Font ve Akıcılık */
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Premium Ürün Kartları */
+.woocommerce ul.products li.product {
+    padding: 20px !important;
+    border-radius: 24px !important;
+    border: 1px solid #f2f2f2 !important;
+    background: #fff !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02) !important;
+}
+
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-12px) !important;
+    box-shadow: 0 25px 60px rgba(74, 8, 61, 0.12) !important;
+    border-color: #ff5fa2 !important;
+}
+
+.woocommerce-loop-product__title {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    text-transform: uppercase !important;
+    margin-top: 15px !important;
+}
+
+.woocommerce ul.products li.product .price {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    color: #4A083D !important;
+}
+
+/* 3. Mobil Alt Menü (App-Like) */
+@media (max-width: 768px) {
+    .tot-mobile-nav {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: #fff; display: flex; justify-content: space-around;
+        padding: 12px 0; box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
+        z-index: 9999; border-top-left-radius: 20px; border-top-right-radius: 20px;
+    }
+}
+
+/* 4. Sepete Ekle Butonları */
+.button.add_to_cart_button, .tot-add-btn {
+    background: #4A083D !important;
+    color: #fff !important;
+    border-radius: 14px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    padding: 15px !important;
+}
+
+/* 5. Hero ve Başlık Düzenlemeleri */
+.hero-title {
+    font-family: 'Bruno Ace SC', sans-serif !important;
+    font-size: clamp(24px, 6vw, 60px) !important;
+    color: #fff !important;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+}

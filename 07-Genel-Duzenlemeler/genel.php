@@ -15,3 +15,10 @@ add_action('wp_enqueue_scripts', function() {
 add_action('wp_footer', function() {
     echo '<!-- TotBagss Premium System v1.1.0 Active -->';
 }, 100);
+
+// Geliştirici Doğrulama Çubuğu (Admin Giriş Yapmışsa Görünür)
+add_action('wp_footer', function() {
+    if (current_user_can('manage_options')) {
+        echo '<div style="position:fixed; bottom:0; left:0; width:100%; background:#4A083D; color:#fff; text-align:center; padding:5px; font-size:10px; z-index:10000; font-family:sans-serif;">TOTBAGSS PREMIUM V1.2.0 AKTİF - MODÜLER YAPI ÇALIŞIYOR</div>';
+    }
+}, 999);
