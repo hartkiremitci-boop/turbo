@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit;
 
 // 1. Child Theme Stilini ve Temel Yapıyı Yükle
 add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style('astra-child-theme-css', get_stylesheet_uri(), array('astra-theme-css'), '1.1.0');
+    wp_enqueue_style('astra-child-theme-css', get_stylesheet_uri(), array('astra-theme-css'), '1.2.0');
 });
 
 // 2. Modül Klasörlerini ve Dosyalarını Tanımla
@@ -44,7 +44,7 @@ foreach ($tot_modules as $folder => $file) {
 
     if (file_exists($css_path)) {
         add_action('wp_enqueue_scripts', function() use ($folder, $css_name) {
-            wp_enqueue_style('tot-' . sanitize_title($folder), get_stylesheet_directory_uri() . '/' . $folder . '/' . $css_name, array(), '1.1.0');
+            wp_enqueue_style('tot-' . sanitize_title($folder), get_stylesheet_directory_uri() . '/' . $folder . '/' . $css_name, array(), '1.2.0');
         });
     }
 }
@@ -53,6 +53,6 @@ foreach ($tot_modules as $folder => $file) {
 add_action('wp_enqueue_scripts', function() {
     // Genel JS
     if (file_exists(get_stylesheet_directory() . '/07-Genel-Duzenlemeler/genel.js')) {
-        wp_enqueue_script('tot-global-js', get_stylesheet_directory_uri() . '/07-Genel-Duzenlemeler/genel.js', array('jquery'), '1.1.0', true);
+        wp_enqueue_script('tot-global-js', get_stylesheet_directory_uri() . '/07-Genel-Duzenlemeler/genel.js', array('jquery'), '1.2.0', true);
     }
 });

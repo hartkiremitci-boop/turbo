@@ -11,3 +11,7 @@ add_filter('wp_lazy_loading_enabled', '__return_true');
 add_action('wp_enqueue_scripts', function() {
     wp_enqueue_script('tot-genel-js', get_stylesheet_directory_uri() . '/07-Genel-Duzenlemeler/genel.js', array(), '1.0.0', true);
 });
+
+add_action('wp_footer', function() {
+    echo '<!-- TotBagss Premium System v1.1.0 Active -->';
+}, 100);
