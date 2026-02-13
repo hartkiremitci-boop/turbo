@@ -1,66 +1,67 @@
-/* Genel UI Ayarları */
+/* ============================================= */
+/* ZARA STYLE MINIMALISM - GLOBAL UI */
+/* ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap');
+
 body {
+    font-family: 'Inter', sans-serif !important;
+    color: #1a1a1a;
+    background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
 }
 
-#content {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
+h1, h2, h3, h4, .hero-title, .shop-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: none !important;
 }
 
-.ast-container {
-    padding-top: 0 !important;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #000; }
 
-/* Mobil Sayfa Düzeni İyileştirmeleri */
-@media (max-width: 768px) {
-    .site-content {
-        padding-top: 10px !important;
-    }
-    .wp-block-group {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    .entry-content {
-        margin-top: 0 !important;
-    }
-    section {
-        margin-bottom: 30px !important;
-    }
-    h2 {
-        font-size: 22px !important;
-        letter-spacing: 1px !important;
-        margin-bottom: 20px !important;
-    }
-}
+/* Selection */
+::selection { background: #000; color: #fff; }
 
-/* Premium Dokunuşlar */
-::selection {
-    background: #4A083D;
-    color: #fff;
-}
+/* Spacing Fixes */
+#content { padding-top: 0 !important; }
+.ast-container { max-width: 1400px !important; }
 
+/* Buttons */
 .button, button, input[type="submit"] {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    background: #000 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 0 !important; /* Zara style is sharp */
+    padding: 15px 35px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    transition: 0.4s ease !important;
 }
 
-.button:hover, button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 8, 61, 0.2) !important;
+.button:hover {
+    background: #333 !important;
+    opacity: 0.9;
 }
 
-/* Scrollbar Özelleştirme (Modern Görünüm) */
-::-webkit-scrollbar {
-    width: 8px;
+/* Fluid Zara Animations */
+.woocommerce ul.products li.product {
+    animation: zaraFadeIn 1s ease forwards;
+    opacity: 0;
 }
-::-webkit-scrollbar-track {
-    background: #fdf6f9;
+
+@keyframes zaraFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-::-webkit-scrollbar-thumb {
-    background: #4A083D;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #6a0b57;
-}
+
+/* Staggered animation for products */
+.woocommerce ul.products li.product:nth-child(1) { animation-delay: 0.1s; }
+.woocommerce ul.products li.product:nth-child(2) { animation-delay: 0.2s; }
+.woocommerce ul.products li.product:nth-child(3) { animation-delay: 0.3s; }
+.woocommerce ul.products li.product:nth-child(4) { animation-delay: 0.4s; }

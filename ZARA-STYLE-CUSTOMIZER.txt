@@ -1,0 +1,31 @@
+/* TOTBAGSS - ZARA STYLE MINIMALISM (COPY-PASTE TO CUSTOMIZER) */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap');
+
+/* Global */
+body { font-family: 'Inter', sans-serif !important; color: #1a1a1a; background: #fff; }
+h1, h2, h3, .hero-title { font-family: 'Playfair Display', serif !important; font-weight: 400 !important; }
+
+/* Buttons */
+.button, button, input[type="submit"] {
+    background: #000 !important; color: #fff !important; border-radius: 0 !important;
+    text-transform: uppercase !important; letter-spacing: 2px !important; font-size: 12px !important;
+}
+
+/* Product Cards */
+.woocommerce ul.products li.product { border: none !important; box-shadow: none !important; text-align: left !important; }
+.woocommerce-loop-product__title { font-size: 13px !important; text-transform: uppercase !important; letter-spacing: 1px !important; margin-top: 15px !important; }
+.woocommerce ul.products li.product .price { font-weight: 300 !important; color: #666 !important; }
+.woocommerce-loop-product__thumbnail { border-radius: 0 !important; }
+
+/* Header & Shop */
+.site-header { border-bottom: 1px solid #f0f0f0 !important; box-shadow: none !important; }
+.tot-premium-shop-header { background: #fff !important; border-bottom: 1px solid #eee; padding: 40px 0 !important; }
+.cat-chip { border: none !important; background: transparent !important; color: #999 !important; border-bottom: 1px solid transparent !important; border-radius: 0 !important; margin-right: 20px !important; }
+.cat-chip.active { color: #000 !important; border-bottom: 1px solid #000 !important; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .tot-mobile-nav { background: #fff !important; border-top: 1px solid #eee !important; box-shadow: none !important; }
+    .nav-item { color: #000 !important; font-size: 9px !important; }
+}

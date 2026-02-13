@@ -1,21 +1,43 @@
-/* HEADER & HERO TAM STİLLER */
-.ast-above-header {
-    min-height: 25px !important;
-    background: #fdf6f9 !important;
-    border-bottom: 1px solid rgba(74, 8, 61, 0.05);
+/* ZARA STYLE - HERO SECTION */
+.wp-block-cover {
+    min-height: 90vh !important;
+    background-color: #000;
 }
-.ast-above-header-section { font-size: 11px !important; font-weight: 700 !important; color: #4A083D !important; }
-.site-header { box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding-bottom: 0 !important; }
 
-/* Hero Cover Block */
-.wp-block-cover { position: relative; min-height: 380px; overflow: hidden; }
-.hero-title { font-family: 'Bruno Ace SC', sans-serif !important; letter-spacing: 5px; font-size: clamp(36px, 5vw, 64px); text-shadow: 0 6px 22px rgba(0,0,0,.6); }
-.hero-text-layer { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 5; }
-.hero-text-layer * { color: #fff !important; }
-.hero-badge { background: rgba(0,0,0,.45); padding: 8px 20px; border-radius: 30px; font-size: 13px; margin-bottom: 28px; }
+.hero-text-layer {
+    padding: 60px !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    justify-content: flex-end !important;
+}
 
-@media(max-width:768px) {
-    .wp-block-cover { min-height: 240px !important; }
-    .hero-title { font-size: 20px !important; letter-spacing: 2px !important; }
-    .hero-btn { padding: 8px 22px !important; font-size: 10px !important; }
+.hero-title {
+    font-size: clamp(48px, 8vw, 120px) !important;
+    line-height: 0.9 !important;
+    margin-bottom: 30px !important;
+    color: #fff !important;
+}
+
+.hero-badge {
+    background: transparent !important;
+    border: 1px solid #fff;
+    padding: 5px 15px !important;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-btn {
+    border-bottom: 1px solid #fff !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    padding: 10px 0 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .wp-block-cover { min-height: 70vh !important; }
+    .hero-title { font-size: 40px !important; }
 }

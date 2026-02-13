@@ -1,16 +1,64 @@
-/* ÜRÜN KARTLARI TAM STİLLER */
+/* ZARA STYLE - PRODUCT CARDS */
 .woocommerce ul.products li.product {
-    padding: 15px !important;
-    border-radius: 20px !important;
-    border: 1px solid #f2f2f2 !important;
-    background: #fff !important;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 40px !important;
 }
-.woocommerce ul.products li.product:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(74, 8, 61, 0.1); }
-.tot-badge-new { position: absolute; top: 10px; left: 10px; background: #4a083d; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 8px; font-weight: 900; z-index: 10; }
-.tot-static-timer { font-size: 9px; font-weight: 900; color: #4a083d; text-align: center; margin: 8px 0; }
-.tot-timer-val { color: #ff5fa2; }
-.tot-rotating-panel { background: linear-gradient(135deg, #4a083d 0%, #6a0d58 100%); border-radius: 8px; min-height: 28px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; font-weight: 800; }
-.woocommerce-loop-product__thumbnail { position: relative; overflow: hidden; border-radius: 15px; }
-.woocommerce-loop-product__thumbnail::after { content: ""; position: absolute; top: 0; left: -150%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-25deg); transition: 0.7s; }
-.woocommerce ul.products li.product:hover .woocommerce-loop-product__thumbnail::after { left: 150%; }
+
+.woocommerce-loop-product__thumbnail {
+    border-radius: 0 !important;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.woocommerce-loop-product__thumbnail img {
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.woocommerce ul.products li.product:hover .woocommerce-loop-product__thumbnail img {
+    transform: scale(1.05);
+}
+
+.woocommerce-loop-product__title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin: 15px 0 5px !important;
+    color: #000 !important;
+}
+
+.woocommerce ul.products li.product .price {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    color: #666 !important;
+}
+
+/* Hide add to cart button on shop page for cleaner Zara look, or make it subtle */
+.woocommerce ul.products li.product .button {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    font-size: 11px !important;
+    padding: 10px !important;
+    margin-top: 10px !important;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.woocommerce ul.products li.product:hover .button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Badge */
+.tot-badge-new {
+    background: #000 !important;
+    border-radius: 0 !important;
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+}

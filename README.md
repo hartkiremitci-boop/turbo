@@ -1,47 +1,17 @@
-# TotBagss Premium Modüler Child Tema
+# TotBagss Premium - Zara Edition
 
-Bu tema, Astra Child Theme üzerine inşa edilmiş, performans odaklı ve yüksek kaliteli (Pro) kullanıcı arayüzü bileşenleri içeren modüler bir yapıdır.
+Bu sürüm, Zara'nın minimalist ve sofistike tasarım dilinden ilham alınarak yeniden tasarlanmıştır.
 
-## 🚀 Öne Çıkan Özellikler
+## ✨ Tasarım Özellikleri
+- **Minimalist Estetik:** Siyah, beyaz ve yumuşak gri tonlarından oluşan sofistike palet.
+- **Yüksek Kalite Tipografi:** Başlıklarda 'Playfair Display' (Serif), UI elemanlarında 'Inter' (Sans-serif) kullanımı.
+- **Zara Usulü Ürün Kartları:** Çerçevesiz, temiz ve fotoğraf odaklı kartlar.
+- **Akışkan Animasyonlar:** Ürün listelerinde yumuşak fade-in efektleri.
 
--   **Modüler Mimari:** Tüm CSS ve PHP kodları mantıksal klasörlere ayrılmıştır (00-14).
--   **Performans & Kalite:** Gereksiz scriptler temizlenmiş, script erteleme (defer) ve görsel optimizasyonları eklenmiştir.
--   **Mobil Hero:** Kullanıcı geri bildirimi doğrultusunda inceltilmiş, zarif mobil ana sayfa alanı.
--   **Mobil Alt Menü:** Uygulama benzeri (App-like) alt navigasyon çubuğu.
--   **Yapışkan Satın Al (Sticky Add to Cart):** Ürün sayfalarında kaydırma yaparken beliren satın alma barı.
--   **WhatsApp Destek:** Hızlı iletişim için yüzer buton.
--   **Ürün Karuseli:** Ajax destekli "Sepete Ekle" özellikli sürükle-bırak karusel.
--   **Kargo Sayacı & Bilgi Paneli:** Ürün kartlarında dinamik kargo süresi ve dönen bilgi panelleri.
--   **Hızlı Satın Al:** Mobilde sepeti atlayıp ödeme sayfasına direkt geçiş butonu.
--   **Brevo Entegrasyonu:** WooCommerce olaylarını Brevo Automation'a ileten takip altyapısı.
+## 🛠️ Kurulum Notları
+1. **Astra Child** temasını aktif edin.
+2. Önbelleği (Cache) mutlaka temizleyin.
+3. Eğer çocuk temayı kuramazsanız, `ZARA-STYLE-CUSTOMIZER.txt` içindeki kodları Özelleştir > Ek CSS kısmına yapıştırın.
 
-## 📁 Klasör Yapısı
-
-0.  `00-Performans-ve-Kalite`: Hız ve kalite ayarları.
-1.  `01-Hero-Alani`: Ana sayfa video/banner alanı ve Header düzenlemeleri.
-3.  `03-Urun-Karuseli`: Ana sayfa ürün kaydırıcı.
-4.  `04-Magaza-Basligi`: Mağaza kategorileri ve sıralama barı.
-5.  `05-Urun-Kartlari`: Ürün kartları ve bilgi panelleri.
-6.  `06-Hesap-ve-Sepet`: Giriş, kayıt, sepet ve ödeme sayfaları.
-7.  `07-Genel-Duzenlemeler`: Global UI iyileştirmeleri ve görsel optimizasyonu.
-8.  `08-Siparis-Takibi`: Üyeliksiz sipariş takip sayfası tasarımı.
-9.  `09-Mobil-Alt-Menu`: Mobilde sabit alt navigasyon barı.
-10. `10-Urun-Sayfasi-Iyilestirmeleri`: Ürün içi Sticky Add to Cart ve Pro özellikler.
-11. `11-Destek-Hatti`: WhatsApp yüzer buton entegrasyonu.
-12. `12-Iletisim-Sayfasi`: İletişim formu ve sayfa tasarımı.
-13. `13-Mobil-Hizli-Satin-Al`: Mobil için "Hemen Al" ve hızlı ödeme süreci.
-14. `14-Brevo-Entegrasyonu`: WooCommerce sepet ve sipariş takip altyapısı.
-
-## 🛠️ Kurulum ve Kullanım
-
-1.  Temayı `wp-content/themes/astra-child` dizinine yükleyin.
-2.  Görünüm > Temalar kısmından aktif edin.
-3.  **Brevo:** Takip ID'nizi `14-Brevo-Entegrasyonu/brevo.php` dosyasına ekleyebilirsiniz.
-
-## ⚡ Performans Notu
-Tema, veritabanı sorgularını minimize eder ve sadece ilgili sayfalarda gerekli CSS/JS dosyalarını yükler.
-
----
-*Geliştiren: Jules - TotBagss Premium Çözümleri*
-15. `15-Hizli-Kategoriler`: Mobilde dairesel kategori ikonları.
-16. `16-Mobil-Arama`: Ana sayfada hızlı arama barı.
+## 📁 Modüler Yapı
+Tüm 16 modül bu yeni tasarım diline göre güncellenmiştir.
