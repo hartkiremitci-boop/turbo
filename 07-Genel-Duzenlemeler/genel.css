@@ -34,3 +34,33 @@ body {
         margin-bottom: 20px !important;
     }
 }
+
+/* Premium Dokunuşlar */
+::selection {
+    background: #4A083D;
+    color: #fff;
+}
+
+.button, button, input[type="submit"] {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.button:hover, button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 8, 61, 0.2) !important;
+}
+
+/* Scrollbar Özelleştirme (Modern Görünüm) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #fdf6f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #4A083D;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6a0b57;
+}
