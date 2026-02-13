@@ -1,475 +1,19 @@
 <?php
 /**
  * TotBagss Child Theme functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Astra Child
- * @since 1.0.0
  */
 
 /**
  * Enqueue styles
  */
 function child_enqueue_styles() {
-    wp_enqueue_style( 'astra-child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), '1.0.0', 'all' );
+    wp_enqueue_style( 'astra-child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), '1.0.1', 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 /**
- * TotBag'sS Stil Günlükleri Carousel Shortcode
- * Kullanım: [totbagss_carousel]
+ * Fontları tek seferde yükle
  */
-add_shortcode('totbagss_carousel', 'totbagss_product_carousel_handler');
-
-function totbagss_product_carousel_handler() {
-    // 20 Ürün Çek
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => 20,
-        'orderby' => 'date',
-        'order' => 'DESC',
-    );
-
-    $loop = new WP_Query($args);
-
-    if (!$loop->have_posts()) {
-        return 'Ürün bulunamadı.';
-    }
-
-    ob_start();
-    ?>
-
-    <style>
-    :root {
-        --tot-primary: #5D0E49;
-        --tot-hover: #3d0930;
-    }
-
-    .tot-carousel-wrapper {
-        overflow: hidden;
-        position: relative;
-        padding: 60px 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: #fff;
-    }
-
-    .tot-header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .tot-header span {
-        color: #ccc;
-        font-size: 10px;
-        font-weight: 900;
-        letter-spacing: 6px;
-        display: block;
-        margin-bottom: 8px;
-    }
-
-    .tot-header h2 {
-        color: var(--tot-primary);
-        font-size: 36px;
-        font-weight: 900;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: -1.5px;
-        position: relative;
-        display: inline-block;
-        background: linear-gradient(to right, #5D0E49 20%, #ff85d8 40%, #ff85d8 60%, #5D0E49 80%);
-        background-size: 200% auto;
-        color: #000;
-        background-clip: text;
-        text-fill-color: transparent;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shine 4s linear infinite;
-    }
-
-    @keyframes shine {
-        to { background-position: 200% center; }
-    }
-
-    .tot-track {
-        display: flex;
-        gap: 24px;
-        cursor: grab;
-        padding-bottom: 30px;
-        user-select: none;
-        transition: transform 0.1s linear;
-    }
-
-    .tot-track:active {
-        cursor: grabbing;
-    }
-
-    .tot-card-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-        flex: 0 0 255px;
-    }
-
-    .tot-card {
-        background: #fff;
-        border-radius: 50px;
-        border: 1px solid #f2f2f2;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        padding: 16px;
-        height: 100%;
-    }
-
-    .tot-card:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 25px 50px rgba(93, 14, 73, 0.12);
-    }
-
-    .tot-img-box {
-        position: relative;
-        aspect-ratio: 4/5;
-        border-radius: 40px;
-        overflow: hidden;
-        background: #f0f0f0;
-        margin-bottom: 16px;
-    }
-
-    .tot-img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 1s ease;
-        display: block;
-    }
-
-    .tot-card:hover .tot-img-box img {
-        transform: scale(1.1);
-    }
-
-    .tot-badge {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        background: var(--tot-primary);
-        color: #fff;
-        font-size: 9px;
-        font-weight: 900;
-        padding: 6px 14px;
-        border-radius: 20px;
-        z-index: 2;
-    }
-
-    .tot-timer {
-        font-size: 13px;
-        font-weight: 900;
-        color: var(--tot-primary);
-        margin-bottom: 10px;
-        text-align: center;
-        height: 20px;
-        font-variant-numeric: tabular-nums;
-    }
-
-    .tot-timer.closed {
-        color: #dc2626;
-        font-size: 10px;
-    }
-
-    .tot-trust-banner {
-        background: var(--tot-primary);
-        color: #fff;
-        font-size: 10px;
-        font-weight: 900;
-        height: 30px;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 12px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .tot-trust-msg {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        transition: transform 0.6s ease;
-    }
-
-    .tot-name {
-        font-size: 12px;
-        font-weight: 800;
-        color: #333;
-        height: 40px;
-        overflow: hidden;
-        margin-bottom: 12px;
-        line-height: 1.3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 0 10px;
-    }
-
-    .tot-price {
-        font-size: 18px;
-        font-weight: 900;
-        color: var(--tot-primary);
-        margin-bottom: 16px;
-        text-align: center;
-    }
-
-    .tot-add-btn {
-        background: var(--tot-primary);
-        color: #fff;
-        border: none;
-        width: 100%;
-        padding: 15px;
-        border-radius: 20px;
-        font-size: 10px;
-        font-weight: 900;
-        cursor: pointer;
-        transition: 0.2s;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        position: relative;
-        z-index: 10;
-    }
-
-    .tot-add-btn:hover {
-        background: var(--tot-hover);
-        box-shadow: 0 8px 20px rgba(93, 14, 73, 0.3);
-    }
-
-    .tot-add-btn.added {
-        background: #10b981;
-        transform: scale(0.95);
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-
-    .tot-carousel-container {
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        cursor: grab;
-        padding: 10px 0;
-    }
-    </style>
-
-    <div class="tot-carousel-wrapper">
-        <div class="tot-header">
-            <span>SON GELEN ÜRÜNLER</span>
-            <h2>TotBag'sS Stil Günlükleri</h2>
-        </div>
-
-        <div class="tot-carousel-container no-scrollbar" id="totCarousel">
-            <div class="tot-track" id="totTrack">
-                <?php
-                // Ürünleri 3 kez tekrarla (sonsuz scroll için)
-                for($i = 0; $i < 3; $i++):
-                    while ($loop->have_posts()) : $loop->the_post();
-                        global $product;
-
-                        $thumbnail_id = get_post_thumbnail_id();
-                        $img_data = wp_get_attachment_image_src($thumbnail_id, 'woocommerce_thumbnail');
-                        $img = $img_data ? esc_url($img_data[0]) : esc_url(wc_placeholder_img_src());
-                        $price = $product->get_price();
-                        $permalink = esc_url(get_permalink());
-                        $product_id = get_the_ID();
-                        $title = get_the_title();
-                ?>
-
-                <div class="tot-card-link">
-                    <div class="tot-card">
-                        <a href="<?php echo $permalink; ?>" style="text-decoration:none; color:inherit;">
-                            <div class="tot-img-box">
-                                <div class="tot-badge">YENİ</div>
-                                <img src="<?php echo $img; ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy">
-                            </div>
-                        </a>
-
-                        <div class="tot-timer" data-type="kargo-timer">00:00:00</div>
-
-                        <div class="tot-trust-banner">
-                            <div class="tot-trust-msg">KARGO ALICI ÖDER</div>
-                        </div>
-
-                        <a href="<?php echo $permalink; ?>" style="text-decoration:none; color:inherit;">
-                            <div class="tot-name"><?php echo esc_html($title); ?></div>
-                            <div class="tot-price">₺<?php echo number_format((float)$price, 2, ',', '.'); ?></div>
-                        </a>
-
-                        <button class="tot-add-btn" data-product-id="<?php echo $product_id; ?>">
-                            SEPETE EKLE
-                        </button>
-                    </div>
-                </div>
-
-                <?php
-                    endwhile;
-                    $loop->rewind_posts();
-                endfor;
-                wp_reset_postdata();
-                ?>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    (function() {
-        const trustMessages = ['KARGO ALICI ÖDER', 'HIZLI DESTEK', 'GÜVENLİ ÖDEME'];
-        let msgIndex = 0;
-
-        function updateTimers() {
-            const now = new Date();
-            const day = now.getDay();
-            const hours = now.getHours();
-            const timers = document.querySelectorAll('[data-type="kargo-timer"]');
-
-            const isClosed = (day === 6 && hours >= 16) || day === 0;
-            let display = "";
-
-            if (isClosed) {
-                display = "PAZAR KARGO KAPALI";
-            } else {
-                let target = new Date();
-                target.setHours(16, 0, 0, 0);
-
-                if (now > target) {
-                    target.setDate(target.getDate() + 1);
-                    if (target.getDay() === 0) target.setDate(target.getDate() + 1);
-                }
-
-                const diff = target - now;
-                const h = Math.floor(diff / 3600000).toString().padStart(2, '0');
-                const m = Math.floor((diff / 60000) % 60).toString().padStart(2, '0');
-                const s = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-                display = `SON KARGO: ${h}:${m}:${s}`;
-            }
-
-            timers.forEach(t => {
-                t.innerText = display;
-                t.classList.toggle('closed', isClosed);
-            });
-
-            // Trust mesajlarını güncelle
-            msgIndex = (msgIndex + 1) % trustMessages.length;
-            document.querySelectorAll('.tot-trust-msg').forEach(m => {
-                m.innerText = trustMessages[msgIndex];
-            });
-        }
-
-        setInterval(updateTimers, 1000);
-        updateTimers();
-
-        // Carousel scroll mantığı
-        const track = document.getElementById('totCarousel');
-        if (!track) return;
-
-        let isDown = false;
-        let startX, scrollLeft;
-
-        track.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - track.offsetLeft;
-            scrollLeft = track.scrollLeft;
-            track.style.scrollBehavior = 'auto';
-        });
-
-        track.addEventListener('mouseleave', () => isDown = false);
-        track.addEventListener('mouseup', () => isDown = false);
-
-        track.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - track.offsetLeft;
-            const walk = (x - startX) * 2;
-            track.scrollLeft = scrollLeft - walk;
-        });
-
-        // Otomatik scroll
-        let autoScroll = setInterval(() => {
-            if (!isDown) {
-                track.scrollLeft += 0.5;
-                if (track.scrollLeft >= (track.scrollWidth / 3) * 2) {
-                    track.scrollLeft = track.scrollWidth / 3;
-                }
-            }
-        }, 20);
-
-        track.addEventListener('mouseenter', () => clearInterval(autoScroll));
-        track.addEventListener('mouseleave', () => {
-            autoScroll = setInterval(() => {
-                if (!isDown) {
-                    track.scrollLeft += 0.5;
-                    if (track.scrollLeft >= (track.scrollWidth / 3) * 2) {
-                        track.scrollLeft = track.scrollWidth / 3;
-                    }
-                }
-            }, 20);
-        });
-
-        // Sepete ekleme
-        document.querySelectorAll('.tot-add-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const productId = this.getAttribute('data-product-id');
-
-                this.innerHTML = "EKLENİYOR...";
-                this.disabled = true;
-
-                const formData = new FormData();
-                formData.append('add-to-cart', productId);
-
-                fetch(window.location.href, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(() => {
-                    this.innerHTML = "SEPETE EKLENDİ ✓";
-                    this.classList.add('added');
-
-                    if (typeof jQuery !== 'undefined') {
-                        jQuery(document.body).trigger('added_to_cart');
-                    }
-
-                    setTimeout(() => {
-                        this.innerHTML = "SEPETE EKLE";
-                        this.classList.remove('added');
-                        this.disabled = false;
-                    }, 1500);
-                })
-                .catch(() => {
-                    this.innerHTML = "HATA OLUŞTU";
-                    setTimeout(() => {
-                        this.innerHTML = "SEPETE EKLE";
-                        this.disabled = false;
-                    }, 1500);
-                });
-            });
-        });
-
-        // Başlangıç scroll pozisyonu
-        window.addEventListener('load', () => {
-            if (track) track.scrollLeft = track.scrollWidth / 3;
-        });
-    })();
-    </script>
-
-    <?php
-    return ob_get_clean();
-}
-
-// Fontları tek seferde yükle
 add_action('wp_enqueue_scripts', 'totbagss_enqueue_fonts', 5);
 function totbagss_enqueue_fonts() {
     wp_enqueue_style(
@@ -480,57 +24,288 @@ function totbagss_enqueue_fonts() {
     );
 }
 
-// Özel CSS - Astra Uyumlu (Moved most static CSS to style.css, but keeping logic here)
-add_action('wp_head', 'totbagss_custom_logic_styles', 100);
-function totbagss_custom_logic_styles() {
-?>
-<style>
-:root {
-    --tot-bordo: #4a083d;
-    --tot-bordo-light: #6a0d58;
-    --tot-hover: #ffa8c9;
-    --tot-light-pink: #fffdfd;
-    --tot-pink-border: #fce7ed;
-    --tot-glow: rgba(255, 168, 201, 0.4);
-    --tot-gold: #ffd700;
-    --tot-silver: #c0c0c0;
-    --tot-light-text: #666666;
+/**
+ * TotBag'sS Stil Günlükleri Carousel Shortcode
+ */
+add_shortcode('totbagss_carousel', 'totbagss_product_carousel_handler');
+
+function totbagss_product_carousel_handler() {
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => 20,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    );
+
+    $loop = new WP_Query($args);
+    if (!$loop->have_posts()) return 'Ürün bulunamadı.';
+
+    ob_start();
+    ?>
+
+    <style>
+    .tot-carousel-wrapper {
+        overflow: hidden;
+        position: relative;
+        padding: 40px 0 60px;
+        background: #fff;
+    }
+
+    .tot-header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .tot-header span.premium-eyebrow {
+        font-family: 'Bruno Ace SC', sans-serif;
+        color: #4A083D;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        display: block;
+        margin-bottom: 12px;
+        opacity: 0.8;
+        position: relative;
+    }
+
+    .tot-header span.premium-eyebrow::before,
+    .tot-header span.premium-eyebrow::after {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 1px;
+        background: #4A083D;
+        vertical-align: middle;
+        margin: 0 15px;
+        opacity: 0.3;
+    }
+
+    .tot-header h2 {
+        font-family: 'Bruno Ace SC', sans-serif;
+        font-size: clamp(22px, 4vw, 32px);
+        font-weight: 400;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #4A083D 0%, #ff5fa2 50%, #4A083D 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% auto;
+        animation: shineText 5s linear infinite;
+    }
+
+    @keyframes shineText {
+        to { background-position: 200% center; }
+    }
+
+    .tot-carousel-container {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        cursor: grab;
+        padding: 10px 20px 30px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .tot-carousel-container::-webkit-scrollbar { display: none; }
+
+    .tot-track {
+        display: flex;
+        gap: 20px;
+    }
+
+    .tot-card-link {
+        flex: 0 0 260px;
+        scroll-snap-align: start;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .tot-card {
+        background: #fff;
+        border-radius: 24px;
+        border: 1px solid #f2f2f2;
+        padding: 12px;
+        transition: all 0.4s ease;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tot-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(74, 8, 61, 0.08);
+        border-color: #ff5fa2;
+    }
+
+    .tot-img-box {
+        aspect-ratio: 1/1.2;
+        border-radius: 18px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        background: #f9f9f9;
+    }
+
+    .tot-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.5s ease;
+    }
+
+    .tot-card:hover .tot-img-box img { transform: scale(1.1); }
+
+    .tot-carousel-transition {
+        min-width: 260px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        background: #fdf6f9;
+        border-radius: 24px;
+        scroll-snap-align: center;
+        border: 1px dashed #4A083D;
+    }
+
+    .transition-title {
+        font-family: 'Bruno Ace SC', sans-serif;
+        font-size: 16px;
+        color: #4A083D;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    .transition-btn {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        color: #fff;
+        background: #4A083D;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+        .tot-card-link { flex: 0 0 220px; }
+        .tot-header h2 { font-size: 18px; }
+    }
+    </style>
+
+    <div class="tot-carousel-wrapper">
+        <div class="tot-header">
+            <span class="premium-eyebrow">SON GELEN ÜRÜNLER</span>
+            <h2>TotBag'sS Stil Günlükleri</h2>
+        </div>
+
+        <div class="tot-carousel-container" id="totCarousel">
+            <div class="tot-track">
+                <?php
+                while ($loop->have_posts()) : $loop->the_post();
+                    global $product;
+                    $img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'woocommerce_thumbnail');
+                    $img_url = $img ? $img[0] : wc_placeholder_img_src();
+                ?>
+                <div class="tot-card-link">
+                    <div class="tot-card">
+                        <a href="<?php the_permalink(); ?>" style="text-decoration:none; color:inherit;">
+                            <div class="tot-img-box">
+                                <img src="<?php echo $img_url; ?>" alt="<?php the_title(); ?>" loading="lazy">
+                            </div>
+                            <div class="tot-name" style="font-weight:700; font-size:12px; color:#333; margin-bottom:8px; height:34px; overflow:hidden; text-transform:uppercase;"><?php the_title(); ?></div>
+                            <div class="tot-price" style="font-weight:900; color:#4A083D; font-size:16px;">₺<?php echo number_format($product->get_price(), 2, ',', '.'); ?></div>
+                        </a>
+                        <button class="tot-add-btn" data-product-id="<?php the_ID(); ?>" style="width:100%; background:#4A083D; color:#fff; border:none; padding:12px; border-radius:14px; margin-top:15px; font-weight:800; font-size:10px; cursor:pointer; text-transform:uppercase; letter-spacing:1px;">SEPETE EKLE</button>
+                    </div>
+                </div>
+                <?php endwhile; wp_reset_postdata(); ?>
+
+                <div class="tot-card-link">
+                    <div class="tot-carousel-transition">
+                        <div class="transition-title">ZAMANSIZ ŞIKLIĞI<br>KEŞFEDİN</div>
+                        <a href="/magaza" class="transition-btn">TÜMÜNÜ GÖR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const track = document.getElementById('totCarousel');
+        if (!track) return;
+
+        let isDown = false;
+        let startX, scrollLeft;
+
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', () => isDown = false);
+        track.addEventListener('mouseup', () => isDown = false);
+        track.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2;
+            track.scrollLeft = scrollLeft - walk;
+        });
+
+        document.querySelectorAll('.tot-add-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const id = this.dataset.productId;
+                this.innerText = '...';
+                const fd = new FormData();
+                fd.append('add-to-cart', id);
+                fetch(window.location.href, { method: 'POST', body: fd })
+                .then(() => {
+                    this.innerText = 'EKLENDİ ✓';
+                    this.style.background = '#10b981';
+                    if (typeof jQuery !== 'undefined') jQuery(document.body).trigger('added_to_cart');
+                    setTimeout(() => {
+                        this.innerText = 'SEPETE EKLE';
+                        this.style.background = '#4A083D';
+                    }, 2000);
+                });
+            });
+        });
+    })();
+    </script>
+    <?php
+    return ob_get_clean();
 }
 
-/* Base font assignment */
-body, h1, h2, h3, h4, h5, h6, p, a, span, button, .woocommerce * {
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Menu font assignment */
-.main-header-menu a, .ast-main-header-nav .menu-link {
-    font-family: 'Bruno Ace', cursive;
-}
-</style>
-<?php
-}
-
-// Rozet ekle
+/**
+ * WooCommerce Rozet, Sayaç ve Panel Logic
+ */
 add_action('woocommerce_before_shop_loop_item_title', 'totbagss_add_badge', 5);
 function totbagss_add_badge() {
-    echo '<div class="tot-badge-new" style="position: absolute; top: 6px; left: 6px; background: #4a083d; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 900; z-index: 10; text-transform: uppercase;">YENİ</div>';
+    echo '<div class="tot-badge-new" style="position: absolute; top: 10px; left: 10px; background: #4a083d; color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 8px; font-weight: 900; z-index: 10; text-transform: uppercase;">YENİ</div>';
 }
 
-// Sayaç ve panel ekle
 add_action('woocommerce_before_shop_loop_item_title', 'totbagss_add_timer_panel', 20);
 function totbagss_add_timer_panel() {
     global $product;
     $id = $product->get_id();
 ?>
-<div class="tot-static-timer" id="timer-<?php echo esc_attr($id); ?>" style="font-size: 10px; font-weight: 900; color: #4a083d; text-transform: uppercase; margin: 2px 0; text-align: center;">
-    <span>KARGO İÇİN:</span><span class="tot-timer-val">00:00:00</span>
+<div class="tot-static-timer" id="timer-<?php echo esc_attr($id); ?>" style="font-size: 9px; font-weight: 900; color: #4a083d; text-transform: uppercase; margin: 4px 0; text-align: center; letter-spacing:0.5px;">
+    <span>KARGO İÇİN:</span> <span class="tot-timer-val" style="color:#ff5fa2;">00:00:00</span>
 </div>
 
-<div class="tot-rotating-panel" id="panel-<?php echo esc_attr($id); ?>" style="background: linear-gradient(135deg, #4a083d 0%, #6a0d58 100%); border-radius: 5px; min-height: 24px; margin: 2px 0; display: flex; align-items: center; justify-content: center; color: #fff; position: relative; overflow: hidden;">
+<div class="tot-rotating-panel" id="panel-<?php echo esc_attr($id); ?>" style="background: linear-gradient(135deg, #4a083d 0%, #6a0d58 100%); border-radius: 8px; min-height: 28px; margin: 4px 0; display: flex; align-items: center; justify-content: center; color: #fff; position: relative; overflow: hidden; font-size: 9px; font-weight: 800;">
     <div class="tot-panel-item active"><span>KARGO ALICI ÖDER</span></div>
-    <div class="tot-panel-item"><span>KOLAY DEĞİŞİM</span></div>
-    <div class="tot-panel-item"><span>GÜVENLİ ÖDEME</span></div>
-    <div class="tot-panel-item"><span>HIZLI DESTEK</span></div>
+    <div class="tot-panel-item" style="display:none;"><span>KOLAY DEĞİŞİM</span></div>
+    <div class="tot-panel-item" style="display:none;"><span>GÜVENLİ ÖDEME</span></div>
+    <div class="tot-panel-item" style="display:none;"><span>HIZLI DESTEK</span></div>
 </div>
 
 <script>
@@ -538,19 +313,14 @@ function totbagss_add_timer_panel() {
     const id = '<?php echo esc_js($id); ?>';
     const panel = document.getElementById('panel-' + id);
     const timer = document.getElementById('timer-' + id);
-
     if (!panel || !timer) return;
-
     const items = panel.querySelectorAll('.tot-panel-item');
     let current = 0;
-
     setInterval(() => {
-        if (items.length < 2) return;
         items[current].style.display = 'none';
         current = (current + 1) % items.length;
         items[current].style.display = 'block';
     }, 4000);
-
     function updateTimer() {
         const now = new Date();
         let target = new Date();
@@ -570,61 +340,13 @@ function totbagss_add_timer_panel() {
 <?php
 }
 
-// Tüm sayfalar üst boşluk
-add_action('wp_head', 'totbagss_page_spacing', 100);
-function totbagss_page_spacing() {
-?>
-<style>
-.site-content { padding-top: 60px; padding-bottom: 60px; }
-.woocommerce .entry-content { padding-top: 40px; padding-bottom: 40px; }
-</style>
-<?php
-}
-
-// Siparişler tablosu buton düzenleme
-add_action('wp_head', 'totbagss_order_buttons', 100);
-function totbagss_order_buttons() {
-    if (!is_account_page()) return;
-?>
-<style>
-.woocommerce-orders-table .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px;
-    padding: 0 20px;
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: 6px;
-    border: 2px solid;
-    transition: all 0.3s;
-}
-.woocommerce-orders-table .button.view { border-color: #4A083D; color: #4A083D; }
-.woocommerce-orders-table .button.pay { border-color: #FB5FAB; color: #FB5FAB; }
-</style>
-<?php
-}
-
-// Görsel Optimizasyonu
-add_filter('upload_mimes', function($mimes) {
-    $mimes['webp'] = 'image/webp';
-    return $mimes;
-});
+/**
+ * Görsel Optimizasyonu & Diğer Ayarlar
+ */
+add_filter('upload_mimes', function($mimes) { $mimes['webp'] = 'image/webp'; return $mimes; });
 add_filter('jpeg_quality', function() { return 85; });
 add_filter('big_image_size_threshold', function() { return 1920; });
 add_filter('wp_lazy_loading_enabled', '__return_true');
-
-// Sidebars and account customizations
-add_action('after_setup_theme', function() {
-    register_sidebar(array(
-        'name'          => __('Shop Filter Sidebar', 'astra'),
-        'id'            => 'shop-filter-sidebar',
-        'before_widget' => '<div id="%1$s" class="widget %2$s wpc-filters-section">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ));
-});
 
 add_filter('woocommerce_account_menu_items', function($items) {
     $items['dashboard'] = 'Profilim';
@@ -632,12 +354,67 @@ add_filter('woocommerce_account_menu_items', function($items) {
 });
 
 add_action('woocommerce_account_dashboard', function() {
-    echo '<div class="premium-welcome" style="margin-bottom: 30px; padding: 20px; background: #fdf6f9; border-left: 4px solid #4A083D; border-radius: 8px;">';
-    echo '<h3 style="color: #4A083D; margin-bottom: 10px;">Hoş Geldiniz!</h3>';
-    echo '<p>TotBagss ailesinin bir parçası olduğunuz için mutluyuz.</p>';
+    echo '<div class="premium-welcome" style="margin-bottom: 30px; padding: 25px; background: #fdf6f9; border-left: 5px solid #4A083D; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">';
+    echo '<h3 style="color: #4A083D; margin-bottom: 12px; font-family:\'Bruno Ace SC\', sans-serif; font-weight:400;">Hoş Geldiniz!</h3>';
+    echo '<p style="font-size:14px; color:#555;">TotBagss ailesinin bir parçası olduğunuz için mutluyuz. Siparişlerinizi ve profilinizi buradan yönetebilirsiniz.</p>';
     echo '</div>';
 }, 5);
 
-add_filter('woocommerce_login_redirect', function($redirect, $user) {
-    return wc_get_page_permalink('shop');
-}, 10, 2);
+add_filter('woocommerce_login_redirect', function($redirect, $user) { return wc_get_page_permalink('shop'); }, 10, 2);
+
+/**
+ * Premium Shop Header (Categories & Sorting)
+ */
+add_action('woocommerce_before_shop_loop', 'totbagss_premium_shop_header', 15);
+function totbagss_premium_shop_header() {
+    if (!is_shop() && !is_product_category()) return;
+
+    // Hide default sorting/result count (we will restyle them or replace)
+    remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+    remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+
+    $categories = get_terms('product_cat', array('hide_empty' => true, 'parent' => 0));
+    ?>
+    <div class="tot-premium-shop-header">
+        <div class="shop-header-top">
+            <h1 class="shop-title"><?php woocommerce_page_title(); ?></h1>
+            <div class="shop-actions">
+                <div class="tot-sort-wrapper">
+                    <?php woocommerce_catalog_ordering(); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-categories-bar no-scrollbar">
+            <a href="<?php echo get_permalink(wc_get_page_id('shop')); ?>" class="cat-chip <?php echo is_shop() ? 'active' : ''; ?>">TÜMÜ</a>
+            <?php foreach ($categories as $cat) :
+                $active = (is_product_category($cat->slug)) ? 'active' : '';
+            ?>
+                <a href="<?php echo get_term_link($cat); ?>" class="cat-chip <?php echo $active; ?>">
+                    <?php echo esc_html($cat->name); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Premium My Account Details Customization
+ */
+add_action('woocommerce_account_dashboard', 'totbagss_premium_dashboard_stats', 10);
+function totbagss_premium_dashboard_stats() {
+    $current_user = wp_get_current_user();
+    ?>
+    <div class="tot-account-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px;">
+        <div class="stat-card" style="background:#fff; padding:20px; border-radius:15px; border:1px solid #eee; text-align:center;">
+            <div style="font-size:11px; color:#999; text-transform:uppercase; margin-bottom:5px;">Üyelik</div>
+            <div style="font-weight:900; color:#4A083D;">PREMIUM ÜYE</div>
+        </div>
+        <div class="stat-card" style="background:#fff; padding:20px; border-radius:15px; border:1px solid #eee; text-align:center;">
+            <div style="font-size:11px; color:#999; text-transform:uppercase; margin-bottom:5px;">Destek</div>
+            <div style="font-weight:900; color:#4A083D;">7/24 ÖNCELİKLİ</div>
+        </div>
+    </div>
+    <?php
+}
